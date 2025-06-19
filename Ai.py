@@ -1,6 +1,5 @@
 from collections import deque
 
-# Representasi graf menggunakan dictionary
 graph = {
     'A': ['B', 'C'],
     'B': ['D', 'E'],
@@ -11,16 +10,15 @@ graph = {
 }
 
 def bfs_search(start, goal):
-    # Antrian untuk BFS
     queue = deque([[start]])
     visited = set()
 
     while queue:
-        path = queue.popleft()  # Ambil jalur dari depan antrian
-        node = path[-1]         # Ambil node terakhir dari jalur
+        path = queue.popleft()  
+        node = path[-1]         
 
         if node == goal:
-            return path         # Jika goal ditemukan, kembalikan jalur
+            return path         
 
         elif node not in visited:
             for neighbor in graph[node]:
@@ -30,9 +28,8 @@ def bfs_search(start, goal):
 
             visited.add(node)
 
-    return None  # Jika tidak ditemukan jalur
+    return None  
 
-# Contoh penggunaan
 start_node = 'A'
 goal_node = 'F'
 result = bfs_search(start_node, goal_node)
